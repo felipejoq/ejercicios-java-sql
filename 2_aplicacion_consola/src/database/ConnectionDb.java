@@ -29,6 +29,17 @@ public class ConnectionDb implements IDatabaseEnvs, IConnectionDb {
     }
 
     public Connection getConnection() {
+        Connection conn = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(
+                    IDatabaseEnvs.DB_URL,
+                    IDatabaseEnvs.DB_USER,
+                    IDatabaseEnvs.DB_PASS
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return conn;
     }
 }

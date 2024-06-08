@@ -16,4 +16,10 @@ public class StockServiceImpl implements IStockService {
     public void checkStock(int sucursalNumber, int productoId) {
         stockDao.checkStock(sucursalNumber, productoId);
     }
+
+    @Override
+    public void checkFidelizacion(String rutCliente) {
+        stockDao.checkFidelizacion(rutCliente);
+    }
+
 }
