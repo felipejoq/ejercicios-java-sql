@@ -19,7 +19,6 @@
                         <label for="categories">Categorías</label>
                         <select name="categoria" id="categories" class="form-select" aria-label="select categorías" required>
                             <option value="" selected>Seleccione una categoría...</option>
-                            <!-- Listado de categorías dinámicas con thymeleaf -->
                             <option
                                     th:each="category : ${categorias}"
                                     th:value="${category.idCategoriaProducto}"
@@ -32,8 +31,6 @@
                         <label for="branch-offices">Sucursales</label>
                         <select name="sucursal" id="branch-offices" class="form-select" aria-label="select sucursales" required>
                             <option value="">Seleccione una sucursal...</option>
-                            <!-- Listado de sucursales dinámicas con thymeleaf -->
-                            <!-- Seleccionar opción que coincida con el id de la sucursal seleccionada -->
                             <option
                                     th:each="branchOffice : ${sucursales}"
                                     th:value="${branchOffice.idSucursal}"
@@ -58,7 +55,7 @@
                 <span th:if="${productos.size() > 0}" th:text="'Total de productos: ' + ${productos.size()}"></span>
                 <span th:unless="${productos.size() > 0}">No hay productos</span>
             </h2>
-            <table class="table table-striped mt-4">
+            <table th:if="${productos.size() > 0}" class="table table-striped mt-4">
                 <thead>
                 <tr>
                     <th>Nombre Sucursal</th>

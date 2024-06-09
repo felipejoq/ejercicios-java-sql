@@ -18,7 +18,7 @@ public interface StockRepository extends JpaRepository<Stock, StockId> {
             "JOIN p.categoriaProducto cp " +
             "JOIN st.sucursal s " +
             "WHERE cp.idCategoriaProducto = :idCategoriaProducto " +
-            "AND s.idSucursal = :idSucursal")
+            "AND s.idSucursal = :idSucursal ORDER BY st.stock DESC")
     List<Object[]> findStockByCategoriaAndSucursal(@Param("idCategoriaProducto") int idCategoriaProducto, @Param("idSucursal") int idSucursal);
 }
 
